@@ -1,0 +1,280 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    color: #2c3e50;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header & Typography */
+.app-header {
+    background-color: #1e293b;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+    color: #ffffff;
+    font-size: 2rem; /* Exactly twice normal base font size */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Layout */
+.main-container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 1.5rem auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Prettier Form Fields */
+.search-section {
+    background: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.weather-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #334155;
+    font-size: 1rem;
+}
+
+.input-group {
+    display: flex;
+    flex: 1;
+    gap: 0.5rem;
+}
+
+.location-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.location-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.search-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #1e3a8a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.search-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.search-btn:active {
+    transform: scale(0.98);
+}
+
+/* Feedback Section: Spinner & Alerts */
+.feedback-section {
+    position: relative;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+}
+
+.spinner {
+    width: 28px;
+    height: 28px;
+    border: 3px solid #cbd5e1;
+    border-top: 3px solid #1e3a8a;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner-text {
+    font-size: 0.95rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+.alert-card {
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-left: 4px solid #ef4444;
+    padding: 0.85rem 1.25rem;
+    border-radius: 8px;
+    color: #991b1b;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+}
+
+/* Map Container: Exactly 70% of Viewport Height */
+.map-section {
+    width: 100%;
+}
+
+.map-container {
+    height: 70vh; /* Strict requirement: 70% viewport height */
+    width: 100%;
+    border-radius: 12px;
+    border: 3px solid #1e293b; /* Solid Charcoal/Navy Border */
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+    z-index: 1;
+}
+
+/* Weather InfoWindow / Leaflet Popup Custom Styling */
+.weather-popup {
+    background: #253342;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 10px 14px;
+    min-width: 180px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.weather-popup h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+    color: #f1f5f9;
+}
+
+.popup-temp-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.popup-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.popup-temp {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.popup-desc {
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+}
+
+.popup-details {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.popup-share-btn {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+}
+
+.popup-share-btn:hover {
+    background-color: #2563eb;
+}
+
+/* Customizing Leaflet Popup wrapper */
+.leaflet-popup-content-wrapper {
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+}
+
+.leaflet-popup-tip {
+    background: #253342 !important;
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+    background-color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .weather-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .input-group {
+        flex-direction: column;
+    }
+    .search-btn {
+        width: 100%;
+    }
+    .map-container {
+        height: 65vh;
+    }
+}
